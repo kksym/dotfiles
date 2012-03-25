@@ -1,0 +1,51 @@
+URxvt.buffered: true
+URxvt.background: #fffffe
+URxvt.foreground: #507994
+URxvt.cursorColor: #00309f
+URxvt.underlineColor: #006004
+URxvt.scrollColor: #788C9E
+
+URxvt.transparent: true
+URxvt.shading: 185
+
+#URxvt.color0: #ffffff
+#URxvt.color1: #eeeeee
+#URxvt.color2: #afdf87
+
+# override yellows
+URxvt.color3: #006004
+URxvt.color11: #006004
+
+#URxvt.color4: #dfaf87
+#URxvt.color5: #afdf87
+#URxvt.color6: #c0c0c0
+URxvt.color7: #00309f
+URxvt.color15: #00309f
+
+# dfafdf pink
+# 87afdf blue
+# afdf87 green
+# dfaf87 tan
+# afafdf purplish
+# 808080 comment grey
+# df8787 salmon
+# ffffaf yellow
+# 444444 dark grey
+
+URxvt*scrollBar: false
+URxvt*scrollstyle: plain
+
+URxvt*termname: urxvt
+URxvt*font: xft:Dejavu Sans Mono:size=9
+#URxvt*font: -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+
+#Xft*dpi: 92 
+Xft*antialias: true
+#Xft*hinting: full
+
+URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1
+
+URxvt*internalBorder:0
+
