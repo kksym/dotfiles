@@ -5,8 +5,7 @@ URxvt.cursorColor: #00309f
 URxvt.underlineColor: #006004
 URxvt.scrollColor: #788C9E
 
-URxvt.transparent: true
-URxvt.shading: 185
+URxvt.transparent: false 
 
 #URxvt.color0: #ffffff
 #URxvt.color1: #eeeeee
