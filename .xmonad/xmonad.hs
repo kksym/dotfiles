@@ -65,6 +65,7 @@ myKeyBindings =
     [
 	((0, xK_Print), spawn "scrot -e 'mv $f ~/screen'"),
 	((mod1Mask .|. controlMask, xK_c), spawn "firefox"),
+    ((mod1Mask .|. controlMask, xK_u), spawn "uzbl-tabbed"),
 	((mod1Mask .|. controlMask, xK_p), spawn "pcmanfm"),
 	((mod1Mask .|. controlMask, xK_m), spawn "~/games/minecraft"),
 	((mod1Mask .|. controlMask, xK_e), spawn "eclipse"),	

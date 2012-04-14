@@ -66,7 +66,7 @@ set tabstop=4 shiftwidth=4
 set expandtab
 
 set wrap
-set textwidth=79
+set textwidth=80
 
 let b:is_chicken = 1
 
@@ -75,6 +75,8 @@ au VimEnter * RainbowParenthesesToggle
 au Bufread,BufNewFile *.as set filetype=actionscript
 
 au Bufread,BufNewFile *.md set spl=en_gb spell
+
+au Bufread,BufNewFile *.rcpu set filetype=ruby
 
 set nocompatible
 set lazyredraw

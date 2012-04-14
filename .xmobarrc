@@ -1,6 +1,8 @@
 Config { font = "xft:Dejavu Sans Mono:size=8,-*-*-*-r-*-*-0-*-*-*-*-*-*-*"
        , bgColor = "#fefefe"
        , fgColor = "#000000"
+       , border = NoBorder
+       , borderColor = "#ffffff"
        , position = Top
        , lowerOnStart = True
        , commands = [ Run MultiCpu ["-t", "cpu: <fc=#41b20b><total0>%</fc> <fc=#41b20b><total1>%</fc>"] 10

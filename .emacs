@@ -1,9 +1,8 @@
-(setq inferior-lisp-program "sbcl &")
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
-(require 'slime)
-(slime-setup)
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 (setq x-super-keysym 'meta)
+
+(setq inferior-lisp-program "sbcl")
 
 (require 'quack)
 (custom-set-variables

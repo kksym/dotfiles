@@ -14,7 +14,7 @@ case $1 in
         sudo bitlbee -F
 		xcompmgr &
 		nitrogen --restore &
-		xsetroot -cursor_name left_ptr &
+		xsetroot -cursor_name left_ptr -fg black -bg white &
         exec urxvt -e "weechat-curses" &
 		exec xmonad
 		;;
