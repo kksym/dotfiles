@@ -28,7 +28,7 @@ alias astyle='astyle -A1sCSNLwYpHxdk1W1'
 export BROWSER=firefox
 export GBDKDIR=/opt/gbdk/
 
-function share {
+function share() {
     cat $1 | haste | xsel
 }
 
