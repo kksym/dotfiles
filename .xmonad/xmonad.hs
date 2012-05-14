@@ -17,34 +17,33 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Named
  
 myWorkspaces :: [String]
-myWorkspaces = list ++ map show [(length list)..9]
-    where
-        list = ["web", "util", "img", "game"]
+myWorkspaces = ["web", "util", "img", "game"]
 
 myManageHook :: ManageHook
 myManageHook = composeAll
     [
     title =? "Nitrogen" --> doFloat,
-    className =? "Gimp" --> doF (shift "img"),
-    className =? "Gimp-2.6" --> doF (shift "img"),
+    className =? "Gimp" --> doShift "img",
+    className =? "Gimp-2.6" --> doShift "img",
     className =? "feh" --> doFloat,
-    className =? "Skype" --> doF (shift "util"),
+    className =? "Skype" --> doShift "util",
     title =? "Copying files" --> doFloat,
     title =? "Engine" --> doFloat,
-    className =? "Steam" --> doF (shift "game")
+    className =? "Steam" --> doShift "game",
+    className =? "Putty" --> doFloat
     ]
 
 myLayoutHook =
     onWorkspace "img" (named "gimp" gimp) $
-    avoidStruts $ layoutHook defaultConfig
-        where gimp = avoidStruts $ withIM 0.15 (Role "gimp-toolbox") $ reflectHoriz $ 
-                        withIM 0.2 (Role "gimp-dock") (ResizableTall 3 (3/100) (1/2) [])			
+        avoidStruts $ layoutHook defaultConfig
+            where gimp = avoidStruts $ withIM 0.15 (Role "gimp-toolbox") $ reflectHoriz $ 
+                            withIM 0.2 (Role "gimp-dock") (ResizableTall 3 (3 / 100) (1 / 2) [])			
 
 myPrettyPrinter xmobar = xmobarPP {
         ppCurrent = xmobarColor "#0000ff" "#eeeeee" . pad,
         ppHidden = xmobarColor "#00309f" "#fefefe",
 		ppOutput = hPutStrLn xmobar,
-		ppTitle = xmobarColor "#000000" "#ffffff" . ((take 60 $ repeat ' ') ++),
+		ppTitle = xmobarColor "#000000" "#ffffff" . (replicate 60 ' ' ++),
         ppOrder = \(ws:layout:title:_) -> [ws],
         ppSep = ""
 }
@@ -53,10 +52,10 @@ myDefaultConfig xmobar = defaultConfig {
 	terminal = "urxvt",
 	modMask = mod1Mask,
 	borderWidth = 2,
-	workspaces = myWorkspaces,
+	workspaces = myWorkspaces ++ map show [length myWorkspaces + 1..9],
 	normalBorderColor = "#eeeeee",
 	focusedBorderColor = "#cacaca",
-	startupHook = setWMName "LG3D",
+	startupHook = setWMName "LG3D", -- Make sure Java applications display
 	manageHook = manageDocks <+> myManageHook,
 	layoutHook = myLayoutHook,
 	logHook = dynamicLogWithPP $ myPrettyPrinter xmobar
