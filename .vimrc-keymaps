@@ -51,3 +51,10 @@ nmap <leader>q :ConqueTermSplit zsh<cr>
 " Omni autocomplete
 inoremap <Nul> <C-x><C-o>
 
+nmap Sn :call VimShNew()<CR>
+nnoremap S  :set opfunc=VimShRunOp<CR>g@
+vnoremap S  :<C-U>call VimShRunOp(visualmode(), 1)<CR>
+nnoremap SS :call VimShRun(getline('.'))<CR>
+nnoremap Sf :call VimShRun(getline(1,'$'))<CR>
+nmap St :norm 99[(<CR>vabS
+

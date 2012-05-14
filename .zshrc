@@ -24,6 +24,7 @@ alias csi='rlwrap csi'
 alias sbcl='rlwrap sbcl'
 #alias emacs='emacs -nw'
 alias astyle='astyle -A1sCSNLwYpHxdk1W1'
+alias maxima='rlwrap maxima'
 
 export BROWSER=firefox
 export GBDKDIR=/opt/gbdk/

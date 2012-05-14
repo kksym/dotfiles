@@ -74,7 +74,8 @@ au VimEnter * RainbowParenthesesToggle
 
 au Bufread,BufNewFile *.as set filetype=actionscript
 
-au Bufread,BufNewFile *.md set spl=en_gb spell
+au Bufread,BufNewFile *.md set spl=en_gb spell filetype=markdown
+au Bufread,BufNewFile *.txt set spl=en_gb spell
 
 au Bufread,BufNewFile *.rcpu set filetype=ruby
 

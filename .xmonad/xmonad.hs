@@ -17,7 +17,9 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Named
  
 myWorkspaces :: [String]
-myWorkspaces = ["web", "util", "img", "game"] ++ map show [5..9]
+myWorkspaces = list ++ map show [(length list)..9]
+    where
+        list = ["web", "util", "img", "game"]
 
 myManageHook :: ManageHook
 myManageHook = composeAll
@@ -35,8 +37,8 @@ myManageHook = composeAll
 myLayoutHook =
     onWorkspace "img" (named "gimp" gimp) $
     avoidStruts $ layoutHook defaultConfig
-        where gimp = avoidStruts $ withIM (0.15) (Role "gimp-toolbox") $ reflectHoriz $ 
-                        withIM (0.2) (Role "gimp-dock") (ResizableTall 3 (3/100) (1/2) [])			
+        where gimp = avoidStruts $ withIM 0.15 (Role "gimp-toolbox") $ reflectHoriz $ 
+                        withIM 0.2 (Role "gimp-dock") (ResizableTall 3 (3/100) (1/2) [])			
 
 myPrettyPrinter xmobar = xmobarPP {
         ppCurrent = xmobarColor "#0000ff" "#eeeeee" . pad,
