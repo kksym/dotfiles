@@ -8,14 +8,14 @@ import XMonad.Hooks.SetWMName
 import XMonad.Layout.Gaps
 import XMonad.Layout.Tabbed
 import XMonad.Actions.UpdatePointer
-import XMonad.StackSet (shift)
+import qualified XMonad.StackSet as W
 import System.IO
 import XMonad.Layout.IM
 import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Named
- 
+
 myWorkspaces :: [String]
 myWorkspaces = ["web", "util", "img", "game"]
 
@@ -30,14 +30,14 @@ myManageHook = composeAll
     title =? "Copying files" --> doFloat,
     title =? "Engine" --> doFloat,
     className =? "Steam" --> doShift "game",
-    className =? "Putty" --> doFloat
-    ]
+    className =? "Putty" --> doFloat,
+    className =? "Civilization IV" --> doFloat
+   ]
 
 myLayoutHook =
-    onWorkspace "img" (named "gimp" gimp) $
-        avoidStruts $ layoutHook defaultConfig
+    onWorkspace "img" (named "gimp" gimp) $ avoidStruts $ layoutHook defaultConfig
             where gimp = avoidStruts $ withIM 0.15 (Role "gimp-toolbox") $ reflectHoriz $ 
-                            withIM 0.2 (Role "gimp-dock") (ResizableTall 3 (3 / 100) (1 / 2) [])			
+                             withIM 0.2 (Role "gimp-dock") (ResizableTall 3 (3 / 100) (1 / 2) [])			
 
 myPrettyPrinter xmobar = xmobarPP {
     ppCurrent = xmobarColor "#0000ff" "#eeeeee" . pad,

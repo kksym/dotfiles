@@ -8,12 +8,12 @@ Config { font = "xft:Dejavu Sans Mono:size=8,-*-*-*-r-*-*-0-*-*-*-*-*-*-*"
        , commands = [ Run MultiCpu ["-t", "cpu: <fc=#41b20b><total0>%</fc> <fc=#41b20b><total1>%</fc>"] 10
                     , Run Memory ["-t","ram: <fc=#00784b><usedratio>%</fc>"] 10
     		    , Run Date "time: <fc=#00784b>%H:%M:%S</fc>" "date" 10
-                    --, Run DiskU [("/", "disk: <fc=#00784b><used>/<size></fc>")] [] 10
+                    , Run DiskU [("/", "disk: <fc=#00784b><used>/<size></fc>")] [] 10
                     , Run Uptime ["-t", "up: <fc=#41b20b><days>d <hours>h <minutes>m</fc>"] 10
                     , Run StdinReader
 		    , Run Com "sh" ["~/bin/mpd.sh"] "mpd" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{  %date%  |  %uptime%  |  %memory%  |  %multicpu%  |  %mpd%"
+       , template = " %StdinReader% }{  %date%  |  %uptime%  |  %memory%  |  %multicpu%  |  %disku%  |  %mpd%"
        }
