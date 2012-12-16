@@ -48,6 +48,9 @@ nmap <leader>O :NERDTreeFind<cr>
 " ConqueTerm
 nmap <leader>q :ConqueTermSplit zsh<cr>
 
+" Tagbar
+nmap <leader>t :TagbarToggle<cr>
+
 " Omni autocomplete
 inoremap <Nul> <C-x><C-o>
 

@@ -15,9 +15,11 @@ import XMonad.Layout.Reflect
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Named
+import XMonad.Layout.NoBorders
+import XMonad.Hooks.FadeInactive
 
 myWorkspaces :: [String]
-myWorkspaces = ["web", "util", "img", "game"]
+myWorkspaces = ["web", "util", "img", "game", "notes"]
 
 myManageHook :: ManageHook
 myManageHook = composeAll
@@ -31,13 +33,11 @@ myManageHook = composeAll
     title =? "Engine" --> doFloat,
     className =? "Steam" --> doShift "game",
     className =? "Putty" --> doFloat,
-    className =? "Civilization IV" --> doFloat
+    className =? "Civilization IV" --> doFloat,
+    className =? "xpad" --> composeAll [doShift "notes", doFloat]
    ]
 
-myLayoutHook =
-    onWorkspace "img" (named "gimp" gimp) $ avoidStruts $ layoutHook defaultConfig
-            where gimp = avoidStruts $ withIM 0.15 (Role "gimp-toolbox") $ reflectHoriz $ 
-                             withIM 0.2 (Role "gimp-dock") (ResizableTall 3 (3 / 100) (1 / 2) [])			
+myLayoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
 
 myPrettyPrinter xmobar = xmobarPP {
     ppCurrent = xmobarColor "#0000ff" "#eeeeee" . pad,
@@ -52,13 +52,16 @@ myDefaultConfig xmobar = defaultConfig {
     terminal = "urxvt",
     modMask = mod1Mask,
     borderWidth = 2,
-    workspaces = myWorkspaces ++ map show [length myWorkspaces + 1..9],
-    normalBorderColor = "#eeeeee",
-    focusedBorderColor = "#cacaca",
+    workspaces = myWorkspaces ++ map show [(length myWorkspaces + 1)..9],
+    normalBorderColor = "#404040",
+    focusedBorderColor = "#ae7b00",
     startupHook = setWMName "LG3D", -- Make sure Java applications display
     manageHook = manageDocks <+> myManageHook,
     layoutHook = myLayoutHook,
-    logHook = dynamicLogWithPP $ myPrettyPrinter xmobar
+    logHook = composeAll
+        [
+        dynamicLogWithPP $ myPrettyPrinter xmobar
+        ]
 }
 
 myKeyBindings :: [((KeyMask, KeySym), X ())]
@@ -68,7 +71,7 @@ myKeyBindings =
     ((mod1Mask .|. controlMask, xK_c), spawn "firefox"),
     ((mod1Mask .|. controlMask, xK_u), spawn "uzbl-tabbed"),
     ((mod1Mask .|. controlMask, xK_p), spawn "pcmanfm"),
-    ((mod1Mask .|. controlMask, xK_m), spawn "~/games/minecraft"),
+    ((mod1Mask .|. controlMask, xK_m), spawn "~/games/runmc.sh"),
     ((mod1Mask .|. controlMask, xK_e), spawn "eclipse"),	
     ((mod1Mask .|. controlMask, xK_g), spawn "gimp"),
     ((mod1Mask .|. controlMask, xK_n), spawn "nitrogen"),

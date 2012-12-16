@@ -1,35 +1,46 @@
 URxvt.buffered: true
-URxvt.background: #fffffe
-URxvt.foreground: #507994
-URxvt.cursorColor: #00309f
 URxvt.underlineColor: #006004
 URxvt.scrollColor: #788C9E
 
 URxvt.transparent: false 
 
-#URxvt.color0: #ffffff
-#URxvt.color1: #eeeeee
-#URxvt.color2: #afdf87
+*background: #181512
+*foreground: #bea492
+*cursorColor: #93a1a1
 
-# override yellows
-URxvt.color3: #006004
-URxvt.color11: #006004
+! black dark/light
+*color0: #332d29
+*color8: #817267
 
-#URxvt.color4: #dfaf87
-#URxvt.color5: #afdf87
-#URxvt.color6: #c0c0c0
-URxvt.color7: #00309f
-URxvt.color15: #00309f
+!! red dark/light
+*color1: #8c644c
+*color9: #9f7155
 
-# dfafdf pink
-# 87afdf blue
-# afdf87 green
-# dfaf87 tan
-# afafdf purplish
-# 808080 comment grey
-# df8787 salmon
-# ffffaf yellow
-# 444444 dark grey
+!! green dark/light
+*color2: #c4be90
+*color10: #bec17e
+
+!! yellow dark/light
+*color3: #bfba92
+*color11: #fafac0
+
+!! blue dark/light
+! *color4: #293033
+! *color12: #303b40
+*color4: #646a6d
+*color12: #626e74
+
+!! magenta dark/light
+*color5: #6d6871
+*color13: #756f7b
+
+!! cyan dark/light
+*color6: #3b484a
+*color14: #444d4e
+
+!! white dark/light
+*color7: #504339
+*color15: #9a875f
 
 URxvt*scrollBar: false
 URxvt*scrollstyle: plain

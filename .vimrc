@@ -51,7 +51,8 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-colorscheme sweyla327140
+"colorscheme sweyla327140
+colorscheme Tomorrow-Night
 
 set nocp
 filetype plugin on
@@ -67,6 +68,7 @@ set expandtab
 
 set wrap
 set textwidth=80
+set spl=en_gb
 
 let b:is_chicken = 1
 
@@ -76,8 +78,6 @@ au Bufread,BufNewFile *.as set filetype=actionscript
 
 au Bufread,BufNewFile *.md set spl=en_gb spell filetype=markdown
 au Bufread,BufNewFile *.txt set spl=en_gb spell
-
-au Bufread,BufNewFile *.rcpu set filetype=ruby
 
 set nocompatible
 set lazyredraw
@@ -109,3 +109,4 @@ set expandtab
 set shiftround
 set nofoldenable
 
+set number!
